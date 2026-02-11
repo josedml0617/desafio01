@@ -5,6 +5,9 @@ public class Order {
 	private Double basic;
 	private Double discount;
 	
+	public Order() {
+	}
+	
 	public Order(Integer id, Double basic, Double discount) {
 		this.id = id;
 		this.basic = basic;

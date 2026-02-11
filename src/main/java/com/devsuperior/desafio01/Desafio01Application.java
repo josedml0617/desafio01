@@ -7,7 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.devsuperior.desafio01.entities.Order;
-import com.devsuperior.desafio01.services.ShippingService;
+import com.devsuperior.desafio01.services.OrderService;
 
 @SpringBootApplication
 public class Desafio01Application implements CommandLineRunner {
@@ -21,9 +21,9 @@ public class Desafio01Application implements CommandLineRunner {
 		Locale.setDefault(Locale.US);
 		
 		Order order = new Order(5533, 120.00, 10.);
-		ShippingService ss = new ShippingService();
-		System.out.println("Valor do frete: "+String.format("%.2f",ss.shipment(order)));
+		OrderService os = new OrderService();
+		System.out.println("Pedido código "+order.getId());
+		System.out.println("Valor total: R$"+String.format("%.2f", os.total(order)));
 		
 	}
-
 }
