@@ -1,6 +1,7 @@
 package com.devsuperior.desafio01;
 
 import java.util.Locale;
+import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -24,10 +25,29 @@ public class Desafio01Application implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		Locale.setDefault(Locale.US);
 		
-		Order order = new Order(5533, 120.00, 10.);
+		Scanner sc = new Scanner(System.in);
 		
+		for(int i = 1; i<=3;i++) {
+		System.out.println("-----------------------------");
+		System.out.println("EXEMPLO "+i);	
+			
+		System.out.println("==========ENTRADA==========");
+		System.out.print("Código: ");
+		int id = sc.nextInt();
+		System.out.print("Valor básico: ");
+		double basic = sc.nextDouble();
+		System.out.print("Porcentagem de Desconto: ");
+		double discount = sc.nextDouble();
+		System.out.println();
+		
+		Order order = new Order(id, basic, discount);
+		
+		System.out.println("===========SAÍDA===========");
 		System.out.println("Pedido código "+order.getId());
-		System.out.println("Valor total: R$"+String.format("%.2f", orderService.total(order)));
-		
+		System.out.println("Valor total: R$ "+String.format("%.2f", orderService.total(order)));
+		System.out.println("-----------------------------");
+		System.out.println();
+		}
+		sc.close();
 	}
 }
